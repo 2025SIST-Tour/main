@@ -53,9 +53,10 @@
   </table>
   <hr/>
 </form>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script>
   $(function (){
-    //FIXME: 내일 고치겠음
+
     $("#u_id").keyup(function (){
       console.log("here");
       let u_id = document.getElementById("u_id");

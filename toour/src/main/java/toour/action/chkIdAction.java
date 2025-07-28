@@ -10,13 +10,12 @@ public class chkIdAction implements Action{
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
         String u_id =request.getParameter("u_id");
-        boolean usable = false;
-
+        boolean usable = true;
         if(u_id !=null){
             MemVO mvo =MemDAO.getMem(u_id);
             if(mvo!=null){
                 // 중복 id가 있으으로 사용 불가능
-                usable = true;
+                usable = false;
             }
         }
         request.setAttribute("usable",usable);
