@@ -2,10 +2,10 @@ package toour.dao;
 
 import org.apache.ibatis.session.SqlSession;
 import toour.Factory.FactoryService;
-import toour.vo.MemVO;
+import toour.vo.MemberVO;
 
-public class MemDAO {
-    public static int addMem(MemVO mvo){
+public class MemberDAO {
+    public static int addMem(MemberVO mvo){
         SqlSession ss = FactoryService.getFactory().openSession();
         int cnt =  ss.insert("member.add",mvo);
         if(cnt>0)
@@ -16,9 +16,9 @@ public class MemDAO {
 
         return cnt;
     }
-    public static MemVO getMem(String id){
+    public static MemberVO getMem(String id){
         SqlSession ss = FactoryService.getFactory().openSession();
-        MemVO mvo = ss.selectOne("member.get",id);
+        MemberVO mvo = ss.selectOne("member.get",id);
         ss.close();
         return mvo;
     }

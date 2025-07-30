@@ -1,8 +1,8 @@
 package toour.action;
 
-import toour.dao.MemDAO;
+import toour.dao.MemberDAO;
 import toour.utl.Hash;
-import toour.vo.MemVO;
+import toour.vo.MemberVO;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,7 +14,7 @@ public class loginAction implements Action{
         String u_id =request.getParameter("u_id");
 
         if(u_id!=null){
-            MemVO mvo = MemDAO.getMem(u_id);
+            MemberVO mvo = MemberDAO.getMem(u_id);
             if(mvo!=null){
 
                 String u_pw = request.getParameter("u_pw");

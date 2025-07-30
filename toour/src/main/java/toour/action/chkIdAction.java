@@ -1,7 +1,7 @@
 package toour.action;
 
-import toour.dao.MemDAO;
-import toour.vo.MemVO;
+import toour.dao.MemberDAO;
+import toour.vo.MemberVO;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -28,7 +28,7 @@ public class chkIdAction implements Action{
                 }
             }
             if(usable){
-                MemVO mvo =MemDAO.getMem(u_id);
+                MemberVO mvo = MemberDAO.getMem(u_id);
                 if(mvo!=null){
                     // 중복 id가 있으으로 사용 불가능
                     alertText = "사용할 수 없는 아이디 입니다.";

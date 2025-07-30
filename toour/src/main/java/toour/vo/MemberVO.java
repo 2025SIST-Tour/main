@@ -1,6 +1,6 @@
 package toour.vo;
 
-public class MemVO {
+public class MemberVO {
     private  String   member_name, member_nickname, member_password,
             member_email, member_created_at, member_updated_at,
             member_last_login_at, member_status, member_type, member_salt,

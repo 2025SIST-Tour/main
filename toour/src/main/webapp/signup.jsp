@@ -32,7 +32,7 @@
     </tr>
     <tr>
       <td>RE-PW:</td>
-      <td><input type="password" id="u_repw" name="u_repw"/><div id="repw_usable"></div> </td>
+      <td><input type="password" id="u_repw" name="u_repw" disabled/><div id="repw_usable"></div> </td>
     </tr>
     <tr>
       <td>별명:</td>
@@ -60,26 +60,31 @@
     $("#u_id").keyup(function (){
       let u_id = document.getElementById("u_id");
       let u_id_t = u_id.value.trim();
-      $.ajax({
-          url:"Controller?type=chkid",
-          type:"post",
-          data:"u_id="+u_id_t
-      }).done(function (res) {
-        $("#id_usable").html(res);
-      });
+      if(u_id_t.length>0){
+        $.ajax({
+            url:"Controller?type=chkid",
+            type:"post",
+            data:"u_id="+u_id_t
+        }).done(function (res) {
+          $("#id_usable").html(res);
+        });
+      }else
+        $("#id_usable").html("");
     });
 
     $("#u_pw").keyup(function (){
       let u_pw = document.getElementById("u_pw");
       let u_pw_t = u_pw.value.trim();
-      console.log(u_pw_t);
-      $.ajax({
-        url:"Controller?type=chkpw",
-        type:"post",
-        data:"u_pw="+u_pw_t
-      }).done(function (res) {
-        $("#pw_usable").html(res);
-      });
+      if (u_pw_t.length>0) {
+        $.ajax({
+          url: "Controller?type=chkpw",
+          type: "post",
+          data: "u_pw=" + u_pw_t
+        }).done(function (res) {
+          $("#pw_usable").html(res);
+        });
+      }else
+        $("#pw_usable").html("");
     });
 
     // 비밀번호 확인(확인번호)에 타이핑을 쳤을 때

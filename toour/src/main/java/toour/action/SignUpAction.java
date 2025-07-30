@@ -1,9 +1,9 @@
 package toour.action;
 
-import toour.dao.MemDAO;
+import toour.dao.MemberDAO;
 import toour.utl.Hash;
 import toour.utl.Salt;
-import toour.vo.MemVO;
+import toour.vo.MemberVO;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -37,7 +37,7 @@ public class SignUpAction implements Action{
             String hash_pw=Hash.getHash(salt+u_pw);
 
             //데이터 베이스에 저장할 VO생성
-            MemVO mvo = new MemVO();
+            MemberVO mvo = new MemberVO();
             //아이디 컬럼 만들고 나서 저장할 것
             mvo.setMember_id(u_id);
             mvo.setMember_password(hash_pw);
@@ -48,7 +48,7 @@ public class SignUpAction implements Action{
 
             
             //데이터베이스에 회원 정보 저장!
-            int cnt =MemDAO.addMem(mvo);
+            int cnt = MemberDAO.addMem(mvo);
 
             cmd =1;
         }
