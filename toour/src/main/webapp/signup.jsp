@@ -57,7 +57,7 @@
 <script>
   $(function (){
     //아이디 창에 타이핑을 쳤을 때
-    //테스트
+    
     $("#u_id").keyup(function (){
       let u_id = document.getElementById("u_id");
       let u_id_t = u_id.value.trim();
