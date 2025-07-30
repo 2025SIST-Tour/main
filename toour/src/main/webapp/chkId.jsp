@@ -5,20 +5,24 @@
 <%--아이디 최소 길이 8로 설정--%>
 <c:set var="id_len" value="8"/>
 
-<%--최소 길이 이하일 경우--%>
-<c:if test="${param.u_id.length() < id_len}">
-  <p>*${id_len}자 이상 기입해주세요</p>
+<%-- 아이디에 한글이 없을 경우 --%>
+<c:if test="${requestScope.usable}">
+  <%--최소 길이 이하일 경우--%>
+  <c:if test="${param.u_id.length() < id_len}">
+    <p>*${id_len}자 이상 기입해주세요</p>
+  </c:if>
+  <%--최소 길이 이상일 경우 가능 --%>
+  <c:if test="${param.u_id.length() >= id_len}">
+    <p>${requestScope.alertText}</p>
+  </c:if>
 </c:if>
 
-<%--최소 길이 이상일 경우 가능 --%>
-<c:if test="${param.u_id.length() >= id_len}">
-<c:if test="${requestScope.usable}">
-  <p>${requestScope.alertText}</p>
-</c:if>
+
+<%-- 아이디에 한글이 있을 경우 --%>
 <c:if test="${not requestScope.usable}" >
   <p>${requestScope.alertText}</p>
 </c:if>
-</c:if>
+
 
 <%--<%--%>
 <%--  Object obj  =request.getAttribute("usable");--%>
