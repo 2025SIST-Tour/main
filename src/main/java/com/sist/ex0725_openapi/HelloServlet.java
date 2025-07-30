@@ -1,4 +1,4 @@
-package com.sist.api_0730;
+package com.sist.ex0725_openapi;
 
 import java.io.*;
 import javax.servlet.http.*;
